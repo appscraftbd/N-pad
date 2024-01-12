@@ -48,7 +48,6 @@
 
 
     </LinearLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -62,7 +61,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal"
                 >
                 <View
@@ -76,18 +75,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#010D12"
-                    android:textSize="19dp"
+                    android:textSize="21dp"
                     android:textStyle="bold"
                     android:textColor="#DCFFFFFF"
                     android:hint="Title note"
                     android:textColorHint="#3CFFFFFF"
                     android:paddingLeft="14dp"
                     android:paddingRight="17dp"
+                    android:textCursorDrawable="@color/white"
                     />
             </LinearLayout>
 
             <EditText
                 android:id="@+id/editBody"
+                android:textCursorDrawable="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#010D12"
@@ -98,11 +99,13 @@
                 android:textStyle="normal"
                 android:paddingLeft="14dp"
                 android:paddingRight="17dp"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="18dp"
                 />
 
         </LinearLayout>
     </ScrollView>
+
+
 
 
 </LinearLayout>

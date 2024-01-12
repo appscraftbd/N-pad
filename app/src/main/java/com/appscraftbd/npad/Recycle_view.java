@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -25,6 +26,8 @@ public class Recycle_view {
 
     Context context;
     RecyclerView recyclerView;
+
+    LinearLayout not_found;
     HashMap<String,String> hashMap ;
     ArrayList<HashMap <String,String>> arrayList ;
     public Recycle_view(Context context, RecyclerView recyclerView, ArrayList arrayList , HashMap hashMap){
@@ -104,6 +107,10 @@ public class Recycle_view {
                     TextView delete = bottomSheetDialog.findViewById(R.id.delete);
                     TextView cancel = bottomSheetDialog.findViewById(R.id.cancel);
 
+                    EditText confirm_delete = bottomSheetDialog.findViewById(R.id.confirm_delete);
+                    confirm_delete.setHighlightColor(Color.parseColor("#2DB7BFCD"));
+
+
                     title.setText(""+stitle);
                     body.setText(""+sbody);
 
@@ -119,14 +126,41 @@ public class Recycle_view {
                         @Override
                         public void onClick(View v) {
 
-                            SQLite sqLite = new SQLite(context);
-                            sqLite.dataDelete(sid);
+                            if(confirm_delete.length()>0){
+                                String yes = confirm_delete.getText().toString();
 
-                            arrayList.remove(position);
-                            notifyItemRemoved(position);
+                                if(yes.equals("yes")){
+
+                                    SQLite sqLite = new SQLite(context);
+                                    sqLite.dataDelete(sid);
+                                    Cursor cursor = sqLite.getAllData();
 
 
-                            bottomSheetDialog.dismiss();
+                                    arrayList.remove(position);
+                                    notifyItemRemoved(position);
+
+                                    bottomSheetDialog.dismiss();
+
+
+                                    if (cursor.getCount()<1){
+                                        recyclerView.setVisibility(View.GONE);
+                                        not_found.setVisibility(View.VISIBLE);
+                                    }else {
+                                        not_found.setVisibility(View.GONE);
+                                        recyclerView.setVisibility(View.VISIBLE);
+                                    }
+
+
+                                }else {
+                                    confirm_delete.setError("No Match");
+                                }
+
+
+                            }else {
+                                confirm_delete.setError("Type 'yes'");
+                            }
+
+
 
 
 
@@ -178,6 +212,10 @@ public class Recycle_view {
         }
     }
 
+    public void notFound(LinearLayout not_founr){
+        this.not_found=not_founr;
+
+    }
 
 
 }

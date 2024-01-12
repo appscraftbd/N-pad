@@ -8,7 +8,6 @@
     android:background="#010D12"
     tools:context=".MainActivity"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start"
     android:id="@+id/drawer_layout"
 
     tools:ignore="MissingDefaultResource">
@@ -27,36 +26,80 @@
                 android:id="@+id/meterialToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:title="My Notepad"
-                app:titleTextColor="#F5FFFFFF"
-
-                app:navigationIcon="@drawable/more_ic"
-
                 >
 
-                <LinearLayout
-                    android:id="@+id/mewwrite"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentRight="true"
-                    android:background="@drawable/search_back"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal"
-                    android:layout_gravity="right"
-                    android:gravity="center"
-                    >
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
 
-                    <ImageView
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:src="@drawable/ic_write1"
-                        android:layout_gravity="center"
+                        >
 
-                        />
+                        <LinearLayout
+                            android:id="@+id/more"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:background="@drawable/search_back"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"
+                            >
 
-                </LinearLayout>
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:src="@drawable/ic_more"
+                                android:layout_gravity="center"
+
+                                />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="My NotePad"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:textSize="24dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="53dp"
+                            />
+
+                      <LinearLayout
+                          android:id="@+id/writenote"
+                          android:layout_width="40dp"
+                          android:layout_height="40dp"
+                          android:layout_alignParentRight="true"
+                          android:background="@drawable/search_back"
+                          android:layout_marginRight="15dp"
+                          android:layout_marginTop="5dp"
+                          android:layout_marginBottom="5dp"
+                          android:orientation="horizontal"
+                          android:gravity="center"
+                          >
+
+                          <ImageView
+                              android:layout_width="22dp"
+                              android:layout_height="22dp"
+                              android:src="@drawable/ic_write1"
+                              android:layout_gravity="center"
+
+                              />
+
+                      </LinearLayout>
+
+
+
+
+
+                    </RelativeLayout>
+
+
+
+
 
             </com.google.android.material.appbar.MaterialToolbar>
         </com.google.android.material.appbar.AppBarLayout>
@@ -66,13 +109,39 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="?attr/actionBarSize"
+            android:visibility="gone"
             />
+
+        <LinearLayout
+            android:id="@+id/notfound"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_not_found"
+                android:layout_gravity="center"
+                android:layout_marginTop="-60dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="Add Note"
+                android:layout_marginTop="10dp"
+                android:textColor="#32FFFFFF"
+                android:textSize="17dp"
+                />
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     
-
-
 
 
 
@@ -88,120 +157,8 @@
         app:itemTextColor="#F1FFFFFF"
         android:background="#010D12"
         app:itemIconTint="#F6FFFFFF"
-        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
-         />
-
-
-<!--    -->
-<!--<LinearLayout-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    android:layout_marginTop="?attr/actionBarSize"-->
-<!--    android:orientation="vertical"-->
-<!--    >-->
-<!--&lt;!&ndash;    <RelativeLayout&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_height="50dp"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_marginBottom="12dp"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_marginTop="10dp"&ndash;&gt;-->
-<!--&lt;!&ndash;        >&ndash;&gt;-->
-
-<!--&lt;!&ndash;        <LinearLayout&ndash;&gt;-->
-<!--&lt;!&ndash;            android:id="@+id/more"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_width="38dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_height="38dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:background="@drawable/search_back"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginRight="15dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginTop="5dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginBottom="5dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginLeft="14dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:orientation="horizontal"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_centerVertical="true"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:gravity="center"&ndash;&gt;-->
-<!--&lt;!&ndash;            >&ndash;&gt;-->
-
-<!--&lt;!&ndash;            <ImageView&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_width="22dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_height="22dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:src="@drawable/ic_more"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_gravity="center"&ndash;&gt;-->
-
-<!--&lt;!&ndash;                />&ndash;&gt;-->
-
-<!--&lt;!&ndash;        </LinearLayout>&ndash;&gt;-->
-
-<!--&lt;!&ndash;        <TextView&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:text="My NotePad"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:textColor="@color/white"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:textStyle="bold"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:textSize="24dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_centerVertical="true"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_marginLeft="65dp"&ndash;&gt;-->
-<!--&lt;!&ndash;            />&ndash;&gt;-->
-
-<!--&lt;!&ndash;      <LinearLayout&ndash;&gt;-->
-<!--&lt;!&ndash;          android:id="@+id/add_note"&ndash;&gt;-->
-<!--&lt;!&ndash;          android:layout_width="40dp"&ndash;&gt;-->
-<!--&lt;!&ndash;          android:layout_height="40dp"&ndash;&gt;-->
-<!--&lt;!&ndash;          android:layout_alignParentRight="true"&ndash;&gt;-->
-<!--&lt;!&ndash;          android:background="@drawable/search_back"&ndash;&gt;-->
-<!--&lt;!&ndash;          android:layout_marginRight="15dp"&ndash;&gt;-->
-<!--&lt;!&ndash;          android:layout_marginTop="5dp"&ndash;&gt;-->
-<!--&lt;!&ndash;          android:layout_marginBottom="5dp"&ndash;&gt;-->
-<!--&lt;!&ndash;          android:orientation="horizontal"&ndash;&gt;-->
-<!--&lt;!&ndash;          android:gravity="center"&ndash;&gt;-->
-<!--&lt;!&ndash;          >&ndash;&gt;-->
-
-<!--&lt;!&ndash;          <ImageView&ndash;&gt;-->
-<!--&lt;!&ndash;              android:layout_width="22dp"&ndash;&gt;-->
-<!--&lt;!&ndash;              android:layout_height="22dp"&ndash;&gt;-->
-<!--&lt;!&ndash;              android:src="@drawable/ic_write1"&ndash;&gt;-->
-<!--&lt;!&ndash;              android:layout_gravity="center"&ndash;&gt;-->
-
-<!--&lt;!&ndash;              />&ndash;&gt;-->
-
-<!--&lt;!&ndash;      </LinearLayout>&ndash;&gt;-->
-
-
-
-
-
-<!--&lt;!&ndash;    </RelativeLayout>&ndash;&gt;-->
-
-
-
-<!--    <LinearLayout-->
-<!--        android:id="@+id/not_found"-->
-<!--        android:visibility="gone"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="vertical"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:gravity="center"-->
-<!--        >-->
-
-<!--        <ImageView-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="100dp"-->
-<!--            android:src="@drawable/ic_no_note"-->
-<!--            android:layout_marginTop="-30dp"-->
-<!--            />-->
-
-<!--    </LinearLayout>-->
-
-
-
-<!--    <View-->
-<!--        android:layout_marginTop="-0.4dp"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0.4dp"-->
-<!--        android:background="#1BA2A2A2"-->
-<!--        />-->
-
-<!--</LinearLayout>-->
+        app:itemShapeFillColor="@color/nav_background"
+        />
 
 
 

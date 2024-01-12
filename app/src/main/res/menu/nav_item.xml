@@ -6,7 +6,6 @@
     <item android:title="Home"
         android:id="@+id/home"
         android:icon="@drawable/ic_home"
-        android:menuCategory="secondary"
         android:checkable="true"
         />
     <item android:title="AppLock"

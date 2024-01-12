@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textView;
     RecyclerView recyclerView;
-    LinearLayout add_item,not_found;
+    LinearLayout add_item,not_found,more;
 
     MaterialToolbar materialToolbar;
 
@@ -62,18 +62,22 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-        toggle = new ActionBarDrawerToggle(MainActivity.this,drawer,materialToolbar,R.string.drawer_close,R.string.drawer_open);
-        drawer.addDrawerListener(toggle);
-
-//        more.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
 //
-//                drawer.open();
-//            }
-//        });
+//        toggle = new ActionBarDrawerToggle(MainActivity.this,drawer,materialToolbar,R.string.drawer_close,R.string.drawer_open);
+//        drawer.addDrawerListener(toggle);
 
+
+        more = findViewById(R.id.more);
+        more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                drawer.open();
+            }
+        });
+
+
+        navigationView.setCheckedItem(R.id.home);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -95,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         getRecycleView();
 
 
-        add_item = findViewById(R.id.mewwrite);
+        add_item = findViewById(R.id.writenote);
         add_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,7 +117,8 @@ public class MainActivity extends AppCompatActivity {
     public void getRecycleView(){
 
         recyclerView = findViewById(R.id.recycleview);
-//        not_found = findViewById(R.id.not_found);
+        not_found = findViewById(R.id.notfound);
+
 
 
         SQLite sqLite = new SQLite(MainActivity.this);
@@ -134,20 +139,19 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-
+        Recycle_view recycle_view = new Recycle_view(MainActivity.this,recyclerView,arrayList,hashMap);
+        recycle_view.notFound(not_found);
 
         if (cursor.getCount()<1){
 
-//            recyclerView.setVisibility(View.GONE);
-//            not_found.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+            not_found.setVisibility(View.VISIBLE);
 
         }else {
 
-//            not_found.setVisibility(View.GONE);
+            not_found.setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
 
-
-            Recycle_view recycle_view = new Recycle_view(MainActivity.this,recyclerView,arrayList,hashMap);
         }
 
 
@@ -160,6 +164,11 @@ public class MainActivity extends AppCompatActivity {
         super.onBackPressed();
         finishAffinity();
         finish();
+    }
+
+    public LinearLayout notFound(){
+
+        return not_found;
     }
 
 
