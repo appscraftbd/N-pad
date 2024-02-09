@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
     HashMap <String,String> hashMap ;
     ArrayList <HashMap <String,String>>arrayList = new ArrayList();
 
-
     private DrawerLayout drawer;
-    private ActionBarDrawerToggle toggle;
+    ImageView addnote;
+
 
 
 
@@ -60,11 +61,19 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.navgation);
         materialToolbar = findViewById(R.id.meterialToolbar);
 
+        addnote = findViewById(R.id.addnote);
+        addnote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(MainActivity.this,Add_note.class));
+
+            }
+        });
 
 
-//
-//        toggle = new ActionBarDrawerToggle(MainActivity.this,drawer,materialToolbar,R.string.drawer_close,R.string.drawer_open);
-//        drawer.addDrawerListener(toggle);
+
+
 
 
         more = findViewById(R.id.more);

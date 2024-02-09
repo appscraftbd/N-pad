@@ -68,6 +68,7 @@
                     android:layout_width="2dp"
                     android:layout_height="match_parent"
                     android:background="@color/white"
+                    android:fontFamily="@font/e1"
                     android:layout_marginLeft="15dp"
                     />
                 <EditText
@@ -82,15 +83,14 @@
                     android:textColorHint="#3CFFFFFF"
                     android:paddingLeft="14dp"
                     android:paddingRight="17dp"
-                    android:textCursorDrawable="@color/white"
+                    android:fontFamily="@font/e1"
                     />
             </LinearLayout>
 
             <EditText
                 android:id="@+id/editBody"
-                android:textCursorDrawable="@color/white"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="#010D12"
                 android:textSize="17dp"
                 android:textColor="#DCFFFFFF"
@@ -99,7 +99,8 @@
                 android:textStyle="normal"
                 android:paddingLeft="14dp"
                 android:paddingRight="17dp"
-                android:layout_marginTop="18dp"
+                android:fontFamily="@font/e3"
+                android:layout_marginTop="16dp"
                 />
 
         </LinearLayout>

@@ -130,17 +130,23 @@ public class Recycle_view {
                                 String yes = confirm_delete.getText().toString();
 
                                 if(yes.equals("yes")){
-
                                     SQLite sqLite = new SQLite(context);
                                     sqLite.dataDelete(sid);
                                     Cursor cursor = sqLite.getAllData();
 
 
-                                    arrayList.remove(position);
-                                    notifyItemRemoved(position);
+                                    try{
 
-                                    bottomSheetDialog.dismiss();
+                                        arrayList.remove(position);
+                                        notifyItemRemoved(position);
+                                        bottomSheetDialog.dismiss();
 
+                                    }catch (Exception e){
+
+                                        bottomSheetDialog.dismiss();
+
+
+                                    }
 
                                     if (cursor.getCount()<1){
                                         recyclerView.setVisibility(View.GONE);

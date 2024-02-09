@@ -5,8 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 
@@ -34,11 +39,23 @@ public class SQLite extends SQLiteOpenHelper {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void getInsertData(String title, String body){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("DD-MM-yyyy");
-        String currentTime=simpleDateFormat.format(new Date());
+
+        LocalDate date = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            date = LocalDate.now();
+        }
+        DateTimeFormatter formatter = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            formatter = DateTimeFormatter.ofPattern("d");
+        }
+        int up = Integer.parseInt(""+date.format(formatter));
+        int today = up+1;
+        DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("dd MMM yyyy");
+        String currentTime = date.format(formatter1);
 
         ContentValues contentValues = new ContentValues();
         contentValues.put("Title",title);

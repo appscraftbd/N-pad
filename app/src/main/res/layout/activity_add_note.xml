@@ -81,15 +81,13 @@
                     android:textColor="#DCFFFFFF"
                     android:hint="Title note"
                     android:textColorHint="#3CFFFFFF"
-                    android:paddingLeft="14dp"
                     android:paddingRight="17dp"
-                    android:textCursorDrawable="@color/white"
+                    android:layout_marginLeft="7dp"
                     />
             </LinearLayout>
 
             <EditText
                 android:id="@+id/editBody"
-                android:textCursorDrawable="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#010D12"
@@ -98,9 +96,10 @@
                 android:hint="Body note"
                 android:textColorHint="#3CFFFFFF"
                 android:textStyle="normal"
-                android:paddingLeft="14dp"
+                android:layout_marginLeft="14dp"
                 android:paddingRight="17dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/e3"
                 />
 
         </LinearLayout>

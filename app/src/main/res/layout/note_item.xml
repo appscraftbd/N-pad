@@ -45,6 +45,7 @@
                     android:textColor="#ECF1F1F1"
                     android:paddingRight="5dp"
                     android:maxLines="1"
+                    android:fontFamily="@font/e1"
                     android:ellipsize="end"
                     />
                 <TextView
@@ -59,6 +60,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="4dp"
                     android:ellipsize="end"
+                    android:fontFamily="@font/e3"
                     />
 
 
@@ -85,7 +87,7 @@
                     android:id="@+id/date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12-01-2024"
+                    android:text="01-01-2024"
                     android:textSize="9dp"
                     android:textColor="#CC666666"
                     android:maxLines="1"

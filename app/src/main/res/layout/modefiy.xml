@@ -14,6 +14,7 @@
         android:textColor="#F6FFFFFF"
         android:text="Title"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/e1"
         android:textSize="19dp"
         android:textStyle="bold"
         android:maxLines="2"
@@ -30,7 +31,8 @@
         android:text="Body"
         android:layout_marginTop="10dp"
         android:textSize="16dp"
-        android:maxLines="10"
+        android:maxLines="3"
+        android:fontFamily="@font/e3"
         android:ellipsize="end"
         />
 
@@ -38,7 +40,7 @@
     <EditText
         android:id="@+id/confirm_delete"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:hint="If you Delete this note then type 'yes'"
         android:textColorHint="#25FFFFFF"
         android:background="@drawable/delete_confirm"
@@ -48,6 +50,7 @@
         android:layout_marginTop="23dp"
         android:textColor="#F6FFFFFF"
         android:maxLines="1"
+        android:minLines="1"
         android:textSize="17dp"
         />
 
